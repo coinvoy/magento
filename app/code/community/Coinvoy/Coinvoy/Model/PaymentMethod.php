@@ -106,7 +106,7 @@ class Coinvoy_Coinvoy_Model_PaymentMethod extends Mage_Payment_Model_Method_Abst
       } catch (Exception $e) {
         throw new Exception("Could not generate checkout page. Double check your Magento Configuration. Error message: " . $e->getMessage());
       }
-      $redirectUrl = 'http://178.62.254.129/paymentPage/'.$invoice['id'].'?redirect='.$successUrl;
+      $redirectUrl = 'https://coinvoy.net/paymentPage/'.$invoice['id'].'?redirect='.$successUrl;
 
       // Step 2: Redirect customer to payment page
       $payment->setIsTransactionPending(true); // Set status to Payment Review while waiting for Coinvoy postback
