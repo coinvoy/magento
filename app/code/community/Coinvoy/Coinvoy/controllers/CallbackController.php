@@ -9,10 +9,12 @@ class Coinvoy_Coinvoy_CallbackController extends Mage_Core_Controller_Front_Acti
       $address   = Mage::getStoreConfig('payment/Coinvoy/bitcoin_address');
       $cv_helper = Mage::helper('Coinvoy');
 
-      $hash      = $_REQUEST['hash'];
-      $status    = $_REQUEST['status'];
-      $orderID   = $_REQUEST['orderID'];
-      $invoiceID = $_REQUEST['invoiceID'];
+      $params = json_decode(file_get_contents('php://input'), true);
+
+      $hash      = $params['hash'];
+      $status    = $params['status'];
+      $orderID   = $params['orderID'];
+      $invoiceID = $params['invoiceID'];
 
       if(!$cv_helper->validateIPN($invoiceID, $hash, $orderID, $secret)) {
         Mage::log("Coinvoy: incorrect callback with incorrect Coinvoy order ID $cbOrderId.");
