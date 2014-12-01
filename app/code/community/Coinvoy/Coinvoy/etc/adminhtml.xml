@@ -1,0 +1,22 @@
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <coinvoy translate="title" module="paygate">
+                                        <title>Bitcoin Payments</title>
+                                        <sort_order>10</sort_order>
+                                    </coinvoy>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
